@@ -2,6 +2,7 @@ package com.ihrm.company.controller;
 
 import com.ihrm.common.entity.Result;
 import com.ihrm.common.entity.ResultCode;
+import com.ihrm.common.exception.CommonException;
 import com.ihrm.company.service.CompanyService;
 import com.ihrm.domain.company.Company;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,11 +57,12 @@ public class CompanyController {
      * @return
      */
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
-    public Result findById(@PathVariable String id){
-        Company company = companyService.findById(id);
+    public Result findById(@PathVariable String id) throws CommonException {
+        throw new CommonException(ResultCode.FAIL);
+        /*Company company = companyService.findById(id);
         Result result = new Result(ResultCode.SUCCESS);
         result.setData(company);
-        return result;
+        return result;*/
     }
 
     /**
@@ -69,6 +71,7 @@ public class CompanyController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public Result findAll(){
+        int i = 1/0;
         List<Company> companyList = companyService.findAll();
         Result result = new Result(ResultCode.SUCCESS);
         result.setData(companyList);

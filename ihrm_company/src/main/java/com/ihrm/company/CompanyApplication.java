@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 
 
-@SpringBootApplication(scanBasePackages = "com.ihrm.company")
+@SpringBootApplication(scanBasePackages = "com.ihrm")
 @EntityScan(value = "com.ihrm.domain.company")
 public class CompanyApplication {
 
